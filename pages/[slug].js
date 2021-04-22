@@ -53,7 +53,8 @@ export async function getStaticProps(context) {
     props: {
       story: data ? data.story : false,
       preview: context.preview || false
-    }
+    },
+    revalidate: 1,
   }
 }
 
@@ -75,6 +76,6 @@ export async function getStaticPaths() {
 
   return {
       paths: paths,
-      fallback: false
+      fallback: 'blocking'
   }
 }
